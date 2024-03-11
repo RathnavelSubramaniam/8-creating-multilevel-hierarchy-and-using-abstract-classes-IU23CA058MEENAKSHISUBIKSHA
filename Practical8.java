@@ -1,57 +1,76 @@
-// Animal.java
-public abstract class Animal {
-    protected String species;
-    protected int age;
 
-    public Animal(Sring species,int age){
-        this.species=species;
-        thisa.age=age;
-    }
-    public abstract void sound();
+abstract class Animal {
+ protected String species;
+ protected int age;
+ abstract void sound();
+   Animal(String species,int age){
+    this.species=species;
+    this.age=age;
 
-    @Override
-    public String toString{
-        return "Species:"+species+",Age:"+age;
-    }
-    @Override
-    public boolean equals(Object obj){
+   }
+   @Override
+   public String toString (){
+     return "Species: "+species+","+" Age: "+age;
+   }
+   @Override
+   public boolean equals(Object obj){
+       if(this==obj)
+        return true;
+       if(obj==null|| getClass()!=obj.getClass())
+       return false;
 
-    }
+       Animal otherAnimal =(Animal)obj; 
+  return species.equals(otherAnimal.species)&&age==otherAnimal.age;
+   }
 }
-
-// Bird.java
-public class Bird extends Animal {
- private String featherColor;
-
- public Brid(String species,int age,String featherColor){
- super(species,age);
- this.featherColor=feathercolor;
-
+ class Mammal extends Animal {
+ private String habiat;
+ Mammal(String species,int age,String habiat){
+    super(species,age);
+    this.habiat=habiat;
+ }
+ void sound(){
+    System.out.println("Animals Sounds");
+ }
 }
-public void sound(){
-    System.out.println("The brid sound");
+ class Bird extends Animal {
+ String feather;
+     Bird(String species,int age,String feather)
+     {
+   super(species,age);
+       this.feather=feather;//
+     }
+     void sound(){
+        System.out.println("Birds Sounds");
+     }
 }
+ class Parrot extends Bird {
+     private boolean canspeak;
+     Parrot (String species,int age,String feather,boolean canspeak){
+  super(species,age,feather);
+  this.canspeak=canspeak;
+     }
+     void sound(){
+        if(canspeak){
+System.out.println("Parrot Speak");
+        }
+        else{
+            System.out.println("Parrot sound");
+        }
+     }
 }
-// Parrot.java
-public class Parrot extends Bird {
-private boolean canSpeack;
-public Parrot(String species,int age,String featherColor,boolean canSpeack){
-    super()
-
-}
-else{
-    System.out.println("Parrod sound")
-}
-}
-
-// Main.java
-public class Main {
+public class Practical8 {
 public static void main(String[] args) {
-  Mummal line=new Mummal("Lion",5,"Grasslands");
-    Brid eagle=new Brid("Eagle",3,"Brown");
-    Parrot talkingParrot=new Parrot("Talking Parrot",2,"Green",true);
+    Mammal v1 = new Mammal("Lion",5,"GrasssLands");
+    Bird v2 = new Bird("Eagle",3,"Brown");
+    Parrot v3 =new Parrot("Talking Parrot",2,"Red",true);
+        System.out.println(v1.toString());
+        System.out.println(v2.toString());
+        System.out.println(v3.toString());
+    System.out.println("Are lion and eagle equal? "+v1.equals(v2));
+    System.out.println("Are lion and lion equal? "+v1.equals(v1));
 
-    System.out.println("Are lion and eagle equal?"+lion.equals(eagele));
-    System.out.println("Are lion and lion equal?"+lion.equals(new Mammal("Lion",5,"Grasslands")));
+
+
 }
 }
